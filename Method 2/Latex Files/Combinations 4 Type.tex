@@ -1,0 +1,69 @@
+\documentclass[fleqn]{article}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png}
+
+\usepackage[cmex10]{amsmath}
+\usepackage[papersize={8.5in,11in}, left=0.68in, right=0.56in, top=0.8in, bottom=0.85in]{geometry}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{float}
+%---------------------------------------------------------------------
+\makeatletter
+\renewcommand{\fnum@figure}{Fig. \thefigure}
+\makeatother
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand{\ignore}[1]{}
+
+
+\usepackage[english]{babel}
+%---------------------------------------------------------------------
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{Possible combinations of 4 Types of Device based on slot result}
+%\title{Design of a Cognitive MAC Protocol for Heterogeneous M2M Networks using Quickly Estimated Users}
+
+\maketitle{}
+
+Asterisk (*) – Can be any number, Not sure case 
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Result & \multicolumn{4}{c|}{Possible Combinations} \\ \hline
+ & 1 & 2 & 3 & 4 \\ \hline
+\multirow{2}{*}{$\alpha$C} & 0 & ==1 & \textgreater{}=1 & 0 \\ \cline{2-5} 
+ & ==1 & 0 & \textgreater{}=2 & 0 \\ \hline
+\multirow{2}{*}{C$\beta$} & \textgreater{}=1 & 0 & 0 & ==1 \\ \cline{2-5} 
+ & \textgreater{}=2 & 0 & ==1 & 0 \\ \hline
+\end{tabular}
+\caption{Possible combinations of 6 Types of Device based on slot result consisting of 1 collisions}
+\label{Tab8_2C}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Slot Result & \multicolumn{4}{l|}{Possible Combinations} \\ \hline
+ & 1 & 2 & 3 & 4 \\ \hline
+\multirow{6}{*}{CC} & * & \textgreater{}=2 & * & * \\ \cline{2-5} 
+ & * & * & * & \textgreater{}=2 \\ \cline{2-5} 
+ & * & ==1 & * & ==1 \\ \cline{2-5} 
+ & \textgreater{}=1 & ==1 & \textgreater{}=1 & 0 \\ \cline{2-5} 
+ & \textgreater{}=1 & 0 & \textgreater{}=1 & ==1 \\ \cline{2-5} 
+ & \textgreater{}=2 & 0 & \textgreater{}=2 & 0 \\ \hline
+\end{tabular}
+\caption{Possible combinations of 4 Types of Device based on slot result consisting of 2 collisions}
+\end{table}
+\end{document}

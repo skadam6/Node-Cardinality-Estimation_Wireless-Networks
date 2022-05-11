@@ -1,0 +1,2 @@
+Change The Value Of T, to get different results for Method 1. Direct generalization of Globecom Method
+

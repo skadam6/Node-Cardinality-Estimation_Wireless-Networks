@@ -1,0 +1,82 @@
+\documentclass[fleqn]{article}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png}
+
+\usepackage[cmex10]{amsmath}
+\usepackage[papersize={8.5in,11in}, left=0.68in, right=0.56in, top=0.8in, bottom=0.85in]{geometry}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{float}
+%---------------------------------------------------------------------
+\makeatletter
+\renewcommand{\fnum@figure}{Fig. \thefigure}
+\makeatother
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand{\ignore}[1]{}
+
+
+\usepackage[english]{babel}
+%---------------------------------------------------------------------
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{Possible combinations of 6 Types of Device based on slot result}
+%\title{Design of a Cognitive MAC Protocol for Heterogeneous M2M Networks using Quickly Estimated Users}
+
+\maketitle{}
+
+Asterisk (*) – Can be any number, Not sure case 
+
+\begin {table} [h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Result                 & \multicolumn{6}{c|}{Possible Combinations}                                            \\ \hline
+                            & 1                & 2                & 3   & 4                & 5                & 6   \\ \hline
+CC0                         & *                & \textgreater{}=2 & 0   & 0                & 0                & 0   \\ \hline
+CC$\alpha$                  & *                & \textgreater{}=1 & ==1 & 0                & 0                & 0   \\ \hline
+\multirow{4}{*}{CC$\beta$}  & *                & \textgreater{}=2 & 0   & ==1              & 0                & 0   \\ \cline{2-7} 
+                            & *                & \textgreater{}=2 & 0   & 0                & ==1              & 0   \\ \cline{2-7} 
+                            & \textgreater{}=1 & ==1              & 0   & 0                & ==1              & 0   \\ \cline{2-7} 
+                            & *                & \textgreater{}=1 & 0   & 0                & 0                & ==1 \\ \hline
+0CC                         & 0                & 0                & 0   & *                & \textgreater{}=2 & 0   \\ \hline
+\multirow{4}{*}{$\alpha$CC} & ==1              & 0                & 0   & *                & \textgreater{}=2 & 0   \\ \cline{2-7} 
+                            & 0                & ==1              & 0   & *                & \textgreater{}=2 & 0   \\ \cline{2-7} 
+                            & 0                & ==1              & 0   & \textgreater{}=1 & ==1              & 0   \\ \cline{2-7} 
+                            & 0                & 0                & ==1 & *                & \textgreater{}=1 & 0   \\ \hline
+$\beta$CC                   & 0                & 0                & 0   & *                & \textgreater{}=1 & ==1 \\ \hline
+\multirow{2}{*}{C$\alpha$C} & \textgreater{}=1 & ==1              & 0   & \textgreater{}=2 & 0                & 0   \\ \cline{2-7} 
+                            & \textgreater{}=1 & 0                & ==1 & \textgreater{}=1 & 0                & 0   \\ \hline
+\multirow{2}{*}{C$\beta$C}  & \textgreater{}=2 & 0                & 0   & \textgreater{}=1 & ==1              & 0   \\ \cline{2-7} 
+                            & \textgreater{}=1 & 0                & 0   & \textgreater{}=1 & 0                & ==1 \\ \hline
+
+\end{tabular}
+
+\caption{Possible combinations of 6 Types of Device based on slot result consisting of 2 collisions}
+\label{Tab8_3C}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Results & \multicolumn{6}{c|}{Possible Combinations} \\ \hline
+ & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\multirow{2}{*}{C $\beta$ $\beta$} & \textgreater{}=2 & 0 & 0 & 0 & ==1 & 0 \\ \cline{2-7} 
+ & \textgreater{}=1 & 0 & 0 & 0 & 0 & ==1 \\ \hline
+\multirow{2}{*}{$\alpha$ $\alpha$ C} & 0 & ==1 & 0 & \textgreater{}=2 & 0 & 0 \\ \cline{2-7} 
+ & 0 & 0 & ==1 & \textgreater{}=1 & 0 & 0 \\ \hline
+\end{tabular}
+\caption{Possible combinations of 6 Types of Device based on slot result consisting of 1 collisions}
+\label{Tab8_2C}
+\end{table}
+
+
+\end{document}

@@ -1,0 +1,5 @@
+Active Nodes - Function to generate Active Nodes
+Hash Value - Function Gerating Hash Values
+Type_5_alterate - in all collision case for, we check for type 2 and 4 first and then in next phase use the result of 3 Types
+M2_Type# - Method 2 for # types of devices present
+

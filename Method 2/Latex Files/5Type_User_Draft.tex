@@ -1,0 +1,144 @@
+\documentclass[fleqn]{article}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png}
+
+\usepackage[cmex10]{amsmath}
+\usepackage[papersize={8.5in,11in}, left=0.68in, right=0.56in, top=0.8in, bottom=0.85in]{geometry}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{float}
+
+%---------------------------------------------------------------------
+\makeatletter
+\renewcommand{\fnum@figure}{Fig. \thefigure}
+\makeatother
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand{\ignore}[1]{}
+
+
+\usepackage[english]{babel}
+%---------------------------------------------------------------------
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{Fast Node Cardinality Estimation for 5 types of Nodes}
+%\title{Design of a Cognitive MAC Protocol for Heterogeneous M2M Networks using Quickly Estimated Users}
+
+\maketitle{}
+
+In this table we specify 5 types and their corresponding symbols. 
+\begin{center}
+  \begin{tabular}{| c | c |}
+    \hline
+    Types & Symbols \\ \hline
+    1 & $\alpha$ $0$ $0$ \\ \hline
+    2 & $\alpha$ $\alpha$ $0$ \\ \hline
+    3 & $\alpha$ $\alpha$ $\alpha$ \\ \hline
+    
+    4 & $0$ $0$ $\beta$ \\ \hline
+    5 & $0$ $\beta$ $\beta$ \\ \hline
+    
+    \hline
+  \end{tabular}
+\end{center}
+
+3 slots are required in 1st phase. In slot 2 and 3 there are 4 possibilities (0 - Empty slot, $\alpha$, $\beta$, and $C$ – Collision, where $\alpha$ and $\beta$ are two different symbols) and in slot 1 there are 3 possibilities (0, C, $\alpha$). Total of possible cases are $(4^2*3 = 48)$. 
+\par At least one collision cases are considered, since zero collision cases do not need additional phase. Exactly One collision cases are $\binom{3}{1}*3*3 = 27$ and exactly two collision cases are $\binom{3}{2}*3 = 9$. In Tables~\ref{Tab_OneC1},~\ref{Tab_OneC2} and~\ref{Tab_OneC3} consider exactly one collision cases. Here $0$ implies empty slot and `Not Sure' outcome means additional slots are required to identify the presence of these types of nodes. Tables~\ref{Tab_TwoC1} denote exactly two collisions cases
+
+
+\begin {table} 
+\centering
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline
+%\cline{1-5}
+\multicolumn{3}{|c|}{Outcome in Block $i$} & \multicolumn{2}{c|}{Types} \\ \hline
+Slot 1      & Slot 2        & Slot 3       & Sure    & Not Sure         \\ \hline
+C           & 0             & 0            & 1       & -                \\ \hline
+C           & 0             & $\alpha$     & \#      & \#               \\ \hline
+C           & 0             & $\beta$      & 1,4     & -                \\ \hline
+C           & $\alpha$      & 0            & 1,2     & -                \\ \hline
+C           & $\alpha$      & $\alpha$     & 1,3     & -                \\ \hline
+C           & $\alpha$      & $\beta$      & 1,2,4   & -                \\ \hline
+C           & $\beta$       & 0            & \#      & \#               \\ \hline
+C           & $\beta$       & $\alpha$     & \#      & \#               \\ \hline
+C           & $\beta$       & $\beta$      & 1,5       & -   \\ \hline
+\hline
+\end{tabular}
+\caption{Exactly one collision case (Part 1). \#, $C$ and $-$ denote ``Invalid Case'', ``Collision'' and  ``Nil'' respectively.}
+\label{Tab_OneC1}
+\end{table}
+
+\begin {table} 
+\centering
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline
+%\cline{1-5}
+\multicolumn{3}{|c|}{Outcome in Block $i$} & \multicolumn{2}{c|}{Types} \\ \hline
+Slot 1        & Slot 2      & Slot 3       & Sure       & Not Sure      \\ \hline
+0             & C           & 0            & \#         & \#            \\ \hline
+0             & C           & $\alpha$     & \#         & \#            \\ \hline
+0             & C           & $\beta$      & \#         & \#            \\ \hline
+$\alpha$      & C           & 0            & \#         & \#            \\ \hline
+$\alpha$      & C           & $\alpha$     & \#         & \#            \\ \hline
+$\alpha$      & C           & $\beta$      & 2,5        & -             \\ \hline
+
+
+\end{tabular}
+\caption{Exactly one collision case (Part 2). \#, $C$ and $-$ denote ``Invalid Case'', ``Collision'' and  ``Nil'' respectively.}
+\label{Tab_OneC2}
+\end{table}
+
+\begin {table} []
+\centering
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline
+%\cline{1-5}
+\multicolumn{3}{|c|}{Outcame in Block $i$} & \multicolumn{2}{c|}{Types} \\ \hline
+Slot 1        & Slot 2        & Slot 3     & Sure    & Not Sure         \\ \hline
+0             & 0             & C          & 4       & -                \\ \hline
+0             & $\alpha$      & C          & \#      & \#               \\ \hline
+0             & $\beta$       & C          & 5,4     & -                \\ \hline
+$\alpha$      & 0             & C          & 1,4     & -                \\ \hline
+$\alpha$      & $\alpha$      & C          & 4       & One of \{2,3\}   \\ \hline
+$\alpha$      & $\beta$       & C          & 1,5,4   & -                \\ \hline
+\end{tabular}
+\caption{Exactly one collision case (Part 3). \#, $C$ and $-$ denote ``Invalid Case'', ``Collision'' and  ``Nil'' respectively.}
+\label{Tab_OneC3}
+\end{table}
+
+\begin {table} 
+\centering
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline
+%\cline{1-5}
+\multicolumn{3}{|c|}{Outcame in Block $i$} & \multicolumn{2}{c|}{Types} \\ \hline
+Slot 1       & Slot 2       & Slot 3       & Sure & Not Sure            \\ \hline
+C            & C            & 0            & 2    & 1                   \\ \hline
+C            & C            & $\alpha$     & 2,3  & 1                   \\ \hline
+C            & C            & $\beta$      & 2    & 1, One of \{4,5\} \\ \hline
+0            & C            & C            & 5    & 4                   \\ \hline
+$\alpha$     & C            & C            & 5    & 4, One of \{1,2,3\} \\ \hline
+C            & 0            & C            & 1,4  & -                   \\ \hline
+C            & $\alpha$     & C            & 1,4  & One of \{2,3\}      \\ \hline
+C            & $\beta$      & C            & 1,4,5  & -     \\ \hline
+
+\end{tabular}
+\caption{Exactly two collisions case. \#, $C$ and $-$ denote ``Invalid Case'', ``Collision'' and  ``Nil'' respectively.}
+\label{Tab_TwoC1}
+\end{table}
+
+
+In case of all Three slots result in `Collisions', first we check for types 3 and 6. By eliminating and reassigning the nodes, we can form a new set of remaining 4 symbols, which can solved using 4 Type method. It is an iterative procedure. \\
+For (C, C, $\beta$). case, to resolve the ambiguity between [Type 1, One of Type {4, 5, 6} ], one slot is used for resolving
+the ambiguity of Type 1 device. To resolve the ambiguity of one of {4, 5, 6},
+we can reassign symbols ( 0, $\alpha$, $\beta$ ) and ambiguity can be
+resolved in one slot only. So Total slots required to resolve the ambiguity is 2. Similar method is used for ($\alpha$, C, C) case.
+
+\end{document}

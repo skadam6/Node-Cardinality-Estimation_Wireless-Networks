@@ -1,0 +1,127 @@
+\documentclass[fleqn]{article}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png}
+
+\usepackage[cmex10]{amsmath}
+\usepackage[papersize={8.5in,11in}, left=0.68in, right=0.56in, top=0.8in, bottom=0.85in]{geometry}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{float}
+%---------------------------------------------------------------------
+\makeatletter
+\renewcommand{\fnum@figure}{Fig. \thefigure}
+\makeatother
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand{\ignore}[1]{}
+
+
+\usepackage[english]{babel}
+%---------------------------------------------------------------------
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{Possible combinations of 8 Types of Device based on slot result}
+%\title{Design of a Cognitive MAC Protocol for Heterogeneous M2M Networks using Quickly Estimated Users}
+
+\maketitle{}
+
+Asterisk (*) – Can be any number, Not sure case 
+
+\begin {table} [h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Result                  & \multicolumn{8}{c|}{Possible Combinations}                                                                                                                                               \\ \hline
+                             & 1                               & 2                               & 3                & 4   & 5                                & 6                               & 7                & 8   \\ \hline
+CCC$0$                       & *                               & *                               & \textgreater{}=2 & 0   & 0                                & 0                               & 0                & 0   \\ \hline
+CCC$\alpha$                  & *                               & *                               & \textgreater{}=1 & ==1 & 0                                & 0                               & 0                & 0   \\ \hline
+\multirow{6}{*}{CCC$\beta$}  & *                               & *                               & \textgreater{}=2 & 0   & ==1                              & 0                               & 0                & 0   \\ \cline{2-9} 
+                             & *                               & *                               & \textgreater{}=2 & 0   & 0                                & ==1                             & 0                & 0   \\ \cline{2-9} 
+                             & *                               & \textgreater{}=1                & ==1              & 0   & 0                                & ==1                             & 0                & 0   \\ \cline{2-9} 
+                             & *                               & *                               & \textgreater{}=2 & 0   & 0                                & 0                               & ==1              & 0   \\ \cline{2-9} 
+                             & \multicolumn{2}{c|}{T1 \textgreater{}= 1 or T2 \textgreater{}= 1} & ==1              & 0   & 0                                & 0                               & ==1              & 0   \\ \cline{2-9} 
+                             & *                               & *                               & \textgreater{}=1 & 0   & 0                                & 0                               & 0                & ==1 \\ \hline
+CC0C                         & *                               & \textgreater{}=2                & 0                & 0   & \textgreater{}=2                 & 0                               & 0                & 0   \\ \hline
+\multirow{2}{*}{CCαC}        & *                               & \textgreater{}=1                & ==1              & 0   & \textgreater{}=2                 & 0                               & 0                & 0   \\ \cline{2-9} 
+                             & *                               & \textgreater{}=1                & 0                & ==1 & \textgreater{}=1                 & 0                               & 0                & 0   \\ \hline
+\multirow{4}{*}{CC$\beta$C}  & *                               & \textgreater{}=2                & 0                & 0   & \textgreater{}=1                 & ==1                             & 0                & 0   \\ \cline{2-9} 
+                             & *                               & \textgreater{}=2                & 0                & 0   & \textgreater{}=1                 & 0                               & ==1              & 0   \\ \cline{2-9} 
+                             & \textgreater{}=1                & ==1                             & 0                & 0   & \textgreater{}=1                 & 0                               & ==1              & 0   \\ \cline{2-9} 
+                             & *                               & \textgreater{}=1                & 0                & 0   & \textgreater{}=1                 & 0                               & 0                & ==1 \\ \hline
+C0CC                         & \textgreater{}=2                & 0                               & 0                & 0   & *                                & \textgreater{}=2                & 0                & 0   \\ \hline
+\multirow{4}{*}{C$\alpha$CC} & \textgreater{}=1                & ==1                             & 0                & 0   & *                                & \textgreater{}=2                & 0                & 0   \\ \cline{2-9} 
+                             & \textgreater{}=1                & 0                               & ==1              & 0   & *                                & \textgreater{}=2                & 0                & 0   \\ \cline{2-9} 
+                             & \textgreater{}=1                & 0                               & ==1              & 0   & \textgreater{}=1                 & ==1                             & 0                & 0   \\ \cline{2-9} 
+                             & \textgreater{}=1                & 0                               & 0                & ==1 & *                                & \textgreater{}=1                & 0                & 0   \\ \hline
+\multirow{2}{*}{C$\beta$CC}  & \textgreater{}=2                & 0                               & 0                & 0   & *                                & \textgreater{}=1                & ==1              & 0   \\ \cline{2-9} 
+                             & \textgreater{}=1                & 0                               & 0                & 0   & *                                & \textgreater{}=1                & 0                & ==1 \\ \hline
+0CCC                         & 0                               & 0                               & 0                & 0   & *                                & *                               & \textgreater{}=2 & 0   \\ \hline
+\multirow{6}{*}{$\alpha$CCC} & ==1                             & 0                               & 0                & 0   & *                                & *                               & \textgreater{}=2 & 0   \\ \cline{2-9} 
+                             & 0                               & ==1                             & 0                & 0   & *                                & *                               & \textgreater{}=2 & 0   \\ \cline{2-9} 
+                             & 0                               & ==1                             & 0                & 0   & *                                & \textgreater{}=1                & ==1              & 0   \\ \cline{2-9} 
+                             & 0                               & 0                               & ==1              & 0   & *                                & *                               & \textgreater{}=2 & 0   \\ \cline{2-9} 
+                             & 0                               & 0                               & ==1              & 0   & \multicolumn{2}{c|}{T5 \textgreater{}= 1 or T6  \textgreater{}= 1} & ==1              & 0   \\ \cline{2-9} 
+                             & 0                               & 0                               & 0                & ==1 & *                                & *                               & \textgreater{}=1 & 0   \\ \hline
+$\beta$CCC                   & 0                               & 0                               & 0                & 0   & *                                & *                               & \textgreater{}=1 & ==1 \\ \hline
+\end{tabular}
+
+\caption{Possible combinations of 8 Types of Device based on slot result consisting of 3 collisions}
+\label{Tab8_3C}
+\end{table}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Result                         & \multicolumn{8}{c|}{Possible Combinations}                                                        \\ \hline
+                                    & 1                & 2                & 3   & 4   & 5                & 6                & 7   & 8   \\ \hline
+CC00                                & *                & \textgreater{}=2 & 0   & 0   & 0                & 0                & 0   & 0   \\ \hline
+CC0$\beta$                          & *                & \textgreater{}=2 & 0   & 0   & ==1              & 0                & 0   & 0   \\ \hline
+CC$\alpha$0                         & *                & \textgreater{}=1 & ==1 & 0   & 0                & 0                & 0   & 0   \\ \hline
+CC$\alpha$$\alpha$                  & *                & \textgreater{}=1 & 0   & ==1 & 0                & 0                & 0   & 0   \\ \hline
+CC$\alpha$$\beta$                   & *                & \textgreater{}=1 & ==1 & 0   & ==1              & 0                & 0   & 0   \\ \hline
+\multirow{4}{*}{CC$\beta$$\beta$}   & *                & \textgreater{}=2 & 0   & 0   & 0                & ==1              & 0   & 0   \\ \cline{2-9} 
+                                    & *                & \textgreater{}=2 & 0   & 0   & 0                & 0                & ==1 & 0   \\ \cline{2-9} 
+                                    & \textgreater{}=1 & ==1              & 0   & 0   & 0                & 0                & ==1 & 0   \\ \cline{2-9} 
+                                    & *                & \textgreater{}=1 & 0   & 0   & 0                & 0                & 0   & ==1 \\ \hline
+\multirow{2}{*}{C$\alpha$$\alpha$C} & \textgreater{}=1 & 0                & ==1 & 0   & \textgreater{}=2 & 0                & 0   & 0   \\ \cline{2-9} 
+                                    & \textgreater{}=1 & 0                & 0   & ==1 & \textgreater{}=1 & 0                & 0   & 0   \\ \hline
+\multirow{2}{*}{C$\beta$$\beta$C}   & \textgreater{}=2 & 0                & 0   & 0   & \textgreater{}=1 & 0                & ==1 & 0   \\ \cline{2-9} 
+                                    & \textgreater{}=1 & 0                & 0   & 0   & \textgreater{}=1 & 0                & 0   & ==1 \\ \hline
+00CC                                & 0                & 0                & 0   & 0   & *                & \textgreater{}=2 & 0   & 0   \\ \hline
+0$\beta$CC                          & 0                & 0                & 0   & 0   & *                & \textgreater{}=1 & ==1 & 0   \\ \hline
+$\alpha$0CC                         & ==1              & 0                & 0   & 0   & *                & \textgreater{}=2 & 0   & 0   \\ \hline
+\multirow{4}{*}{$\alpha$$\alpha$CC} & 0                & ==1              & 0   & 0   & *                & \textgreater{}=2 & 0   & 0   \\ \cline{2-9} 
+                                    & 0                & 0                & ==1 & 0   & *                & \textgreater{}=2 & 0   & 0   \\ \cline{2-9} 
+                                    & 0                & 0                & ==1 & 0   & \textgreater{}=1 & ==1              & 0   & 0   \\ \cline{2-9} 
+                                    & 0                & 0                & 0   & ==1 & *                & \textgreater{}=1 & 0   & 0   \\ \hline
+$\alpha$$\beta$CC                   & ==1              & 0                & 0   & 0   & *                & \textgreater{}=1 & ==1 & 0   \\ \hline
+$\beta$$\beta$CC                    & 0                & 0                & 0   & 0   & *                & \textgreater{}=1 & 0   & ==1 \\ \hline
+\end{tabular}
+\caption{Possible combinations of 8 Types of Device based on slot result consisting of 2 collisions}
+\label{Tab8_2C}
+\end{table}
+
+\begin{table}[]
+\centering
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Results                                  & \multicolumn{8}{c|}{Possible Combinations}                          \\ \hline
+                                              & 1                & 2 & 3   & 4   & 5                & 6 & 7   & 8   \\ \hline
+\multirow{2}{*}{C $\beta$ $\beta$ $\beta$}    & \textgreater{}=2 & 0 & 0   & 0   & 0                & 0 & ==1 & 0   \\ \cline{2-9} 
+                                              & \textgreater{}=1 & 0 & 0   & 0   & 0                & 0 & 0   & ==1 \\ \hline
+\multirow{2}{*}{$\alpha$ $\alpha$ $\alpha$ C} & 0                & 0 & ==1 & 0   & \textgreater{}=2 & 0 & 0   & 0   \\ \cline{2-9} 
+                                              & 0                & 0 & 0   & ==1 & \textgreater{}=1 & 0 & 0   & 0   \\ \hline
+\end{tabular}
+\caption{Possible combinations of 8 Types of Device based on slot result consisting of 1 collisions}
+\label{Tab8_2C}
+\end{table}
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[fleqn]{article}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.eps,.pdf,.jpeg,.png}
+
+\usepackage[cmex10]{amsmath}
+\usepackage[papersize={8.5in,11in}, left=0.68in, right=0.56in, top=0.8in, bottom=0.85in]{geometry}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{float}
+%---------------------------------------------------------------------
+\makeatletter
+\renewcommand{\fnum@figure}{Fig. \thefigure}
+\makeatother
+\renewcommand{\baselinestretch}{1.2}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\newcommand{\ignore}[1]{}
+
+
+\usepackage[english]{babel}
+%---------------------------------------------------------------------
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{Possible combinations of 3 Types of Device based on slot result}
+%\title{Design of a Cognitive MAC Protocol for Heterogeneous M2M Networks using Quickly Estimated Users}
+
+\maketitle{}
+
+Asterisk (*) – Can be any number, Not sure case 
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Slot Result & \multicolumn{3}{c|}{Possible Combinations} \\ \hline
+ & 1 & 2 & 3 \\ \hline
+\multirow{2}{*}{$\alpha$C} & 0 & ==1 & \textgreater{}=1 \\ \cline{2-4} 
+ & ==1 & 0 & \textgreater{}=2 \\ \hline
+\multirow{3}{*}{CC} & * & \textgreater{}=2 & * \\ \cline{2-4} 
+ & \textgreater{}=1 & ==1 & \textgreater{}=1 \\ \cline{2-4} 
+ & \textgreater{}=2 & 0 & \textgreater{}=2 \\ \hline
+\end{tabular}
+\caption{Possible combinations of 6 Types of Device based on slot result consisting of 1 collisions}
+\label{Tab8_2C}
+\end{table}
+
+\end{document}
